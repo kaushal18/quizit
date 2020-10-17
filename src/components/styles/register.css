@@ -1,4 +1,4 @@
-.login {
+.registerCard {
   position: absolute;
   width: 30em;
   height: 34em;
@@ -9,10 +9,10 @@
   border-radius: 10px;
 }
 
-.loginLabel {
+.registerLabel {
   position: absolute;
   left: 50%;
-  top: 15%;
+  top: 10%;
   transform: translate(-50%, -50%);
   font-family: Roboto;
   font-size: 38px;
@@ -20,10 +20,10 @@
   color: rgb(134, 130, 130);
 }
 
-.emailLabel {
+.nameLabel2 {
   position: absolute;
   left: 20%;
-  top: 30%;
+  top: 20%;
   transform: translate(-50%, -50%);
   font-family: Roboto;
   font-size: 22px;
@@ -31,13 +31,43 @@
   color: rgb(102, 99, 99);
 }
 
-.emailInput {
+.nameInput2 {
   position: absolute;
   left: 50%;
+  top: 28%;
+  transform: translate(-50%, -50%);
+  width: 330px;
+  height: 38px;
+  background: rgb(228, 213, 230);
+  border-radius: 10px;
+  border: none;
+  padding-left: 15px;
+  font-size: large;
+}
+
+.nameInput2:focus {
+  outline: none;
+  border: 2px solid #ee32ff;
+}
+
+.emailLabel2 {
+  position: absolute;
+  left: 20%;
   top: 38%;
   transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-size: 22px;
+  text-align: center;
+  color: rgb(102, 99, 99);
+}
+
+.emailInput2 {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
   width: 330px;
-  height: 40px;
+  height: 38px;
   background: rgb(228, 213, 230);
   border-radius: 10px;
   border: none;
@@ -45,15 +75,15 @@
   font-size: large;
 }
 
-.emailInput:focus {
+.emailInput2:focus {
   outline: none;
   border: 2px solid #ee32ff;
 }
 
-.passwordLabel {
+.passwordLabel2 {
   position: absolute;
   left: 24%;
-  top: 50%;
+  top: 56%;
   transform: translate(-50%, -50%);
   font-family: Roboto;
   font-size: 22px;
@@ -61,13 +91,13 @@
   color: rgb(102, 99, 99);
 }
 
-.passwordInput {
+.passwordInput2 {
   position: absolute;
   left: 50%;
-  top: 58%;
+  top: 64%;
   transform: translate(-50%, -50%);
   width: 330px;
-  height: 40px;
+  height: 38px;
   background: rgb(228, 213, 230);
   border-radius: 10px;
   border: none;
@@ -75,15 +105,36 @@
   font-size: large;
 }
 
-.passwordInput:focus {
+.passwordInput2:focus {
   outline: none;
   border: 2px solid #ee32ff;
 }
 
-.submitButton {
+.labelStyle {
+  font-family: Roboto;
+  font-size: 22px;
+  text-align: center;
+  color: rgb(102, 99, 99);
+}
+
+.student {
+  position: absolute;
+  left: 35%;
+  top: 74%;
+  transform: translate(-50%, -50%);
+}
+
+.teacher {
+  position: absolute;
+  left: 65%;
+  top: 74%;
+  transform: translate(-50%, -50%);
+}
+
+.submitButton2 {
   position: absolute;
   left: 50%;
-  top: 80%;
+  top: 85%;
   transform: translate(-50%, -50%);
   height: 50px;
   width: 120px;
@@ -98,10 +149,24 @@
   transition: all 0.3s ease 0s;
 }
 
-.submitButton:hover,
-.submitButton:focus {
+.submitButton2:focus {
+  outline: none;
+}
+
+.submitButton2:hover {
   outline: none;
   box-shadow: 0px 15px 20px rgba(223, 60, 245, 0.4);
   background: #d704eb;
-  top: 78%;
+  top: 83%;
+}
+
+.errorMessageReg {
+  position: absolute;
+  left: 50%;
+  top: 93%;
+  transform: translate(-50%, -50%);
+  font-family: Roboto;
+  font-size: 18px;
+  text-align: center;
+  color: rgb(236, 19, 19);
 }
