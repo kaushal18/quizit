@@ -1,0 +1,47 @@
+.createQuiz {
+  margin-top: 10vh;
+}
+
+.createQuiz .title {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* subject */
+.createQuiz .subjectLabel {
+  position: absolute;
+  left: 35%;
+  top: 20%;
+}
+
+.createQuiz .subjectInput {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+}
+
+/* description */
+.createQuiz .descLabel {
+  position: absolute;
+  left: 35%;
+  top: 25%;
+}
+
+.createQuiz .descInput {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+}
+
+/* start date & time */
+.createQuiz .startLabel {
+  position: absolute;
+  left: 35%;
+  top: 30%;
+}
+
+.createQuiz .startInput {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+}

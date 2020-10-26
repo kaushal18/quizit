@@ -157,7 +157,7 @@
   outline: none;
   box-shadow: 0px 15px 20px rgba(223, 60, 245, 0.4);
   background: #d704eb;
-  top: 83%;
+  top: 84%;
 }
 
 .errorMessageReg {
@@ -169,4 +169,12 @@
   font-size: 18px;
   text-align: center;
   color: rgb(236, 19, 19);
+  width: 300px;
+}
+
+.loadingSpinner2 {
+  position: absolute;
+  left: 69%;
+  top: 85%;
+  transform: translate(-50%, -50%);
 }

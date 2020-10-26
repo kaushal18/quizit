@@ -1,0 +1,19 @@
+nav {
+  position: fixed;
+  top: 0;
+  background-color: #5c93fe;
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  list-style-type: none;
+  margin: 0 5px;
+  padding: 15px;
+}

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
+import auth from "../services/authService";
 import { register } from "../services/userService";
 import "./styles/register.css";
+import loadingSpinner from "../assets/loadingSpinner.svg";
 
 const Register = () => {
   const [values, setValues] = useState({
@@ -10,6 +13,7 @@ const Register = () => {
     role: "",
   });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.body.style = "background: #5C93FE";
@@ -24,21 +28,35 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values);
+    setError("");
+    setLoading(true);
 
     try {
-      setError("");
-      const user = await register(values);
-      console.log(user);
+      await register(values);
+      window.location = "/login";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         setError(ex.response.data);
+      } else {
+        setError("Server failed to respond, try again later");
       }
     }
+
+    setLoading(false);
   };
 
+  if (auth.getCurrentUser()) return <Redirect to="/" />;
   return (
     <div className="registerCard">
+      {loading && (
+        <img
+          src={loadingSpinner}
+          alt="loading"
+          height="40"
+          width="40"
+          className="loadingSpinner2"
+        />
+      )}
       <form onSubmit={handleSubmit}>
         <label htmlFor="registerLabel" className="registerLabel">
           Register
