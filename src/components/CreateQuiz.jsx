@@ -14,6 +14,7 @@ const CreateQuiz = () => {
     questions: [],
     enrolledStudents: [],
   });
+  const [questionCount, setQuestionCount] = useState([1]);
 
   // authentication
   const user = auth.getCurrentUser();
@@ -25,6 +26,11 @@ const CreateQuiz = () => {
   const handleSubmit = () => {};
   const handleCancel = () => {
     window.location = "/";
+  };
+  const handleAdd = () => {
+    setQuestionCount((prevCount) => {
+      return [...prevCount, prevCount[prevCount.length - 1] + 1];
+    });
   };
 
   return (
@@ -45,9 +51,26 @@ const CreateQuiz = () => {
             Start Date and Time
           </label>
           <input type="datetime-local" className="startInput" />
+          <label htmlFor="end" className="endLabel">
+            End Date and Time
+          </label>
+          <input type="datetime-local" className="endInput" />
+
+          {questionCount.map((count) => (
+            <div key={count}>
+              <label htmlFor="questions">Question {count}</label>
+              <textarea
+                name="question"
+                className="question"
+                cols="30"
+                rows="5"
+              ></textarea>
+            </div>
+          ))}
         </form>
 
         <button onClick={handleCancel}>Cancel</button>
+        <button onClick={handleAdd}>Add Question</button>
       </div>
     </React.Fragment>
   );

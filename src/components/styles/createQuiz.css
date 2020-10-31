@@ -45,3 +45,21 @@
   left: 50%;
   top: 30%;
 }
+
+/* end date & time */
+.createQuiz .endLabel {
+  position: absolute;
+  left: 35%;
+  top: 35%;
+}
+
+.createQuiz .endInput {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+}
+
+/* questions */
+.createQuiz .question {
+  resize: none;
+}
