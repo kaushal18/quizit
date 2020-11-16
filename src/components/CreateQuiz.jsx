@@ -14,7 +14,14 @@ const CreateQuiz = () => {
     questions: [],
     enrolledStudents: [],
   });
-  const [questionCount, setQuestionCount] = useState([1]);
+
+  const [questions, setQuestions] = useState([
+    {
+      question: "",
+      options: [{ option: "" }, { option: "" }, { option: "" }, { option: "" }],
+      answer: "",
+    },
+  ]);
 
   // authentication
   const user = auth.getCurrentUser();
@@ -23,14 +30,58 @@ const CreateQuiz = () => {
   // authorization
   if (user.role !== "teacher") return <Redirect to="/" />;
 
-  const handleSubmit = () => {};
+  const handleAddQuestion = () => {
+    const question = {
+      question: "",
+      options: [{ option: "" }, { option: "" }, { option: "" }, { option: "" }],
+      answer: "",
+    };
+    setQuestions((prevQues) => {
+      return [...prevQues, question];
+    });
+  };
+
   const handleCancel = () => {
     window.location = "/";
   };
-  const handleAdd = () => {
-    setQuestionCount((prevCount) => {
-      return [...prevCount, prevCount[prevCount.length - 1] + 1];
+
+  const handleChange = (e) => {
+    setQuizDetails({
+      ...quizDetails,
+      [e.target.name]: e.target.value,
     });
+  };
+
+  const handleQuestionChange = (e) => {
+    const index = e.target.name;
+    const value = e.target.value;
+
+    setQuestions((prevQues) => {
+      const currQuestionObj = prevQues[index];
+      currQuestionObj.question = value;
+      const newQuestions = [...questions];
+      newQuestions[index] = currQuestionObj;
+      return newQuestions;
+    });
+  };
+
+  const handleOptionChange = (e) => {
+    const [qIndex, oIndex] = e.target.name.split("-");
+    const value = e.target.value;
+
+    setQuestions((prevQues) => {
+      const currOptionsObj = prevQues[qIndex]["options"][oIndex];
+      currOptionsObj.option = value;
+      const newQuestions = [...questions];
+      newQuestions[qIndex]["options"][oIndex] = currOptionsObj;
+      return newQuestions;
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(quizDetails);
+    console.log(questions);
   };
 
   return (
@@ -38,39 +89,104 @@ const CreateQuiz = () => {
       <Navbar user={user} />
       <div className="createQuiz">
         <div className="title">Create a new Quiz</div>
+        <br />
         <form onSubmit={handleSubmit}>
           <label htmlFor="subject" className="subjectLabel">
             Subject
           </label>
-          <input type="text" className="subjectInput" />
+          <br />
+          <input
+            type="text"
+            name="subject"
+            className="subjectInput"
+            onChange={handleChange}
+          />
+          <br />
           <label htmlFor="description" className="descLabel">
             Description
           </label>
-          <input type="text" className="descInput" />
+          <br />
+          <input
+            type="text"
+            name="description"
+            className="descInput"
+            onChange={handleChange}
+          />
+          <br />
           <label htmlFor="start" className="startLabel">
             Start Date and Time
           </label>
-          <input type="datetime-local" className="startInput" />
+          <br />
+          <input
+            type="datetime-local"
+            name="startDateTime"
+            className="startInput"
+            onChange={handleChange}
+          />
+          <br />
           <label htmlFor="end" className="endLabel">
             End Date and Time
           </label>
-          <input type="datetime-local" className="endInput" />
+          <br />
+          <input
+            type="datetime-local"
+            name="endDateTime"
+            className="endInput"
+            onChange={handleChange}
+          />
+          <br />
 
-          {questionCount.map((count) => (
-            <div key={count}>
-              <label htmlFor="questions">Question {count}</label>
+          {questions.map((questionObj, index) => (
+            <div key={index}>
+              <label className="questionLabel">Question {index + 1}</label>
+              <br />
               <textarea
-                name="question"
-                className="question"
+                name={index}
+                className="questionInput"
                 cols="30"
                 rows="5"
+                value={questions[index].question}
+                onChange={handleQuestionChange}
               ></textarea>
+              <br />
+
+              <input
+                type="text"
+                name={`${index}-0`}
+                className="option"
+                value={questions[index].options[0].option}
+                onChange={handleOptionChange}
+              />
+              <input
+                type="text"
+                name={`${index}-1`}
+                className="option"
+                value={questions[index].options[1].option}
+                onChange={handleOptionChange}
+              />
+              <input
+                type="text"
+                name={`${index}-2`}
+                className="option"
+                value={questions[index].options[2].option}
+                onChange={handleOptionChange}
+              />
+              <input
+                type="text"
+                name={`${index}-3`}
+                className="option"
+                value={questions[index].options[3].option}
+                onChange={handleOptionChange}
+              />
             </div>
           ))}
         </form>
 
+        <button onClick={handleAddQuestion}>Add Question</button>
+        <br />
         <button onClick={handleCancel}>Cancel</button>
-        <button onClick={handleAdd}>Add Question</button>
+        <br />
+        <button onClick={handleSubmit}>Create</button>
       </div>
     </React.Fragment>
   );

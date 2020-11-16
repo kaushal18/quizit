@@ -2,13 +2,13 @@
   margin-top: 10vh;
 }
 
-.createQuiz .title {
+/* .createQuiz .title {
   text-align: center;
   font-size: 24px;
-}
+} */
 
 /* subject */
-.createQuiz .subjectLabel {
+/* .createQuiz .subjectLabel {
   position: absolute;
   left: 35%;
   top: 20%;
@@ -18,10 +18,10 @@
   position: absolute;
   left: 50%;
   top: 20%;
-}
+} */
 
 /* description */
-.createQuiz .descLabel {
+/* .createQuiz .descLabel {
   position: absolute;
   left: 35%;
   top: 25%;
@@ -31,10 +31,10 @@
   position: absolute;
   left: 50%;
   top: 25%;
-}
+} */
 
 /* start date & time */
-.createQuiz .startLabel {
+/* .createQuiz .startLabel {
   position: absolute;
   left: 35%;
   top: 30%;
@@ -44,10 +44,10 @@
   position: absolute;
   left: 50%;
   top: 30%;
-}
+} */
 
 /* end date & time */
-.createQuiz .endLabel {
+/* .createQuiz .endLabel {
   position: absolute;
   left: 35%;
   top: 35%;
@@ -57,9 +57,18 @@
   position: absolute;
   left: 50%;
   top: 35%;
-}
+} */
 
 /* questions */
-.createQuiz .question {
-  resize: none;
+/* .createQuiz .questionLabel {
+  position: absolute;
+  left: 35%;
+  top: 40%;
 }
+
+.createQuiz .questionInput {
+  resize: none;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+} */
